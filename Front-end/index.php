@@ -4,6 +4,22 @@
 $url = "http://localhost:3000/api/v1/library";
 
 //call api
+$data = array('title' => 'test', 'author' => 'test', 'publisher' => 'testpub', 'year' => '2000');
+
+// use key 'http' even if you send the request to https://...
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+    )
+);
+$context  = stream_context_create($options);
+$result = file_get_contents($url, false, $context);
+if ($result === FALSE) { /* Handle error */ }
+
+var_dump($result);
+
 $json = file_get_contents($url);
 $json = json_decode($json);
 // $title = $json->results[0]->title;
