@@ -1,0 +1,212 @@
+Started GET "/" for 127.0.0.1 at 2021-11-14 19:03:16 +0530
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby26-x64/lib/ruby/gems/2.6.0/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 15.4ms | Allocations: 478)
+Completed 200 OK in 90ms (Views: 37.5ms | ActiveRecord: 0.0ms | Allocations: 4257)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-11-14 19:03:17 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  [1m[35m (20.3ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (33.9ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT GET_LOCK('5563979726711371980', 0)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateBooks (20211114133418)
+  [1m[35m (39.4ms)[0m  [1m[35mCREATE TABLE `books` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `author` varchar(255), `publisher` varchar(255), `year` int)[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20211114133418')[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2021-11-14 13:35:57.394347', '2021-11-14 13:35:57.394347')[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5563979726711371980')[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (3.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('A Time of Gifts', 'Lauran D\'Amore', 'Ladybird Books', 2006)[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (1.1ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Have His Carcase', 'Sherman Schamberger', 'Cambridge University Press', 2001)[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (1.3ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('What\'s Become of Waring', 'The Hon. Maria Pfeffer', 'Viking Press', 1983)[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('The Violent Bear It Away', 'Wally Emard DDS', 'Gaspereau Press', 2018)[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (1.5ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Arms and the Man', 'Bryanna Herman PhD', 'Medknow Publications', 1982)[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (1.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Postern of Fate', 'Leland Bechtelar Esq.', 'Carcanet Press', 1988)[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (1.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('O Pioneers!', 'Marion Hermiston', 'Parachute Publishing', 1980)[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Waiting for the Barbarians', 'Jim Ernser', 'Ladybird Books', 2019)[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (1.4ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('The Mermaids Singing', 'Sen. Tori Kub', 'Medknow Publications', 1988)[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (1.3ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('The Torment of Others', 'Kymberly Davis DDS', 'University of Chicago Press', 2013)[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Fame Is the Spur', 'Prof. Clementina Dietrich', 'Zondervan', 2015)[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Rosemary Sutcliff', 'Obdulia Fay', 'Broadview Press', 2015)[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Gone with the Wind', 'Brooks Wintheiser', 'Atheneum Books', 2008)[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (0.3ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('The Cricket on the Hearth', 'Rachael O\'Keefe', 'Brill Publishers', 1980)[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Fair Stood the Wind for France', 'Forest Metz', 'Candlewick Press', 1994)[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/library/3" for ::1 at 2021-11-14 19:18:49 +0530
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (uninitialized constant Api::V1::LibraryController):
+  
+Started GET "/api/v1/library/3" for ::1 at 2021-11-14 19:19:28 +0530
+  
+ActionController::RoutingError (uninitialized constant Api::V1::LibraryController):
+  
+Started GET "/api/v1/library/" for ::1 at 2021-11-14 19:23:30 +0530
+  
+ActionController::RoutingError (uninitialized constant Api::V1::LibraryController):
+  
+Started GET "/api/v1/library/" for ::1 at 2021-11-14 19:25:15 +0530
+  
+ActionController::RoutingError (uninitialized constant Api::V1::LibraryController):
+  
+Started GET "/api/v1/library/" for ::1 at 2021-11-14 19:26:41 +0530
+  
+ActionController::RoutingError (uninitialized constant Api::V1::LibraryController):
+  
+Started GET "/api/v1/library/" for ::1 at 2021-11-14 19:29:53 +0530
+  
+SyntaxError (G:/NITC/S7/WebP/Ruby On Rails/library/app/controllers/api/v1/library_controller.rb:5: dynamic constant assignment
+                Books = Book.order('id ASC');
+                ^~~~~
+G:/NITC/S7/WebP/Ruby On Rails/library/app/controllers/api/v1/library_controller.rb:9: dynamic constant assignment
+                Book = Book.find(params[:id])
+                ^~~~
+G:/NITC/S7/WebP/Ruby On Rails/library/app/controllers/api/v1/library_controller.rb:13: dynamic constant assignment
+                Book = Book.new(Book_params)
+                ^~~~
+G:/NITC/S7/WebP/Ruby On Rails/library/app/controllers/api/v1/library_controller.rb:21: dynamic constant assignment
+                Book = Book.find(params[:id])
+                ^~~~
+G:/NITC/S7/WebP/Ruby On Rails/library/app/controllers/api/v1/library_controller.rb:27: dynamic constant assignment
+               Book = Book.find(params[:id])
+               ^~~~):
+  
+app/controllers/api/v1/library_controller.rb:5: dynamic constant assignment
+app/controllers/api/v1/library_controller.rb:9: dynamic constant assignment
+app/controllers/api/v1/library_controller.rb:13: dynamic constant assignment
+app/controllers/api/v1/library_controller.rb:21: dynamic constant assignment
+app/controllers/api/v1/library_controller.rb:27: dynamic constant assignment
+app/controllers/api/v1/library_controller.rb:5: dynamic constant assignment
+app/controllers/api/v1/library_controller.rb:9: dynamic constant assignment
+app/controllers/api/v1/library_controller.rb:13: dynamic constant assignment
+app/controllers/api/v1/library_controller.rb:21: dynamic constant assignment
+app/controllers/api/v1/library_controller.rb:27: dynamic constant assignment
+Started GET "/api/v1/library/" for ::1 at 2021-11-14 19:31:20 +0530
+Processing by Api::V1::LibraryController#index as */*
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
+  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
+Completed 200 OK in 65ms (Views: 31.7ms | ActiveRecord: 21.7ms | Allocations: 6682)
+
+
+Started GET "/api/v1/library/12" for ::1 at 2021-11-14 19:32:30 +0530
+Processing by Api::V1::LibraryController#show as */*
+  Parameters: {"id"=>"12"}
+  [1m[36mBook Load (1.0ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/api/v1/library_controller.rb:9:in `show'
+Completed 200 OK in 107ms (Views: 0.7ms | ActiveRecord: 1.0ms | Allocations: 2123)
+
+
+Started POST "/api/v1/library" for ::1 at 2021-11-14 19:33:42 +0530
+Processing by Api::V1::LibraryController#create as */*
+  Parameters: {"title"=>"Web Programming", "author"=>"Suvidha KS", "publisher"=>"NITC", "year"=>"2021", "library"=>{"title"=>"Web Programming", "author"=>"Suvidha KS", "publisher"=>"NITC", "year"=>"2021"}}
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 1480)
+
+
+  
+NameError (uninitialized constant Api::V1::LibraryController::Book_params):
+  
+app/controllers/api/v1/library_controller.rb:13:in `create'
+Started POST "/api/v1/library" for ::1 at 2021-11-14 19:34:52 +0530
+Processing by Api::V1::LibraryController#create as */*
+  Parameters: {"title"=>"Web Programming", "author"=>"Suvidha KS", "publisher"=>"NITC", "year"=>"2021", "library"=>{"title"=>"Web Programming", "author"=>"Suvidha KS", "publisher"=>"NITC", "year"=>"2021"}}
+[31mUnpermitted parameter: :library[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
+  [1m[36mBook Create (2.1ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Web Programming', 'Suvidha KS', 'NITC', 2021)[0m
+  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
+Completed 200 OK in 97ms (Views: 1.0ms | ActiveRecord: 41.9ms | Allocations: 5351)
+
+
+Started GET "/api/v1/library/16" for ::1 at 2021-11-14 19:35:34 +0530
+Processing by Api::V1::LibraryController#show as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/api/v1/library_controller.rb:9:in `show'
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 813)
+
+
+Started DELETE "/api/v1/articles/16" for ::1 at 2021-11-14 19:35:40 +0530
+  
+ActionController::RoutingError (No route matches [DELETE] "/api/v1/articles/16"):
+  
+Started DELETE "/api/v1/library/16" for ::1 at 2021-11-14 19:36:06 +0530
+Processing by Api::V1::LibraryController#destroy as */*
+  Parameters: {"id"=>"16"}
+  [1m[36mBook Load (0.8ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 16 LIMIT 1[0m
+  ↳ app/controllers/api/v1/library_controller.rb:21:in `destroy'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/library_controller.rb:22:in `destroy'
+  [1m[36mBook Destroy (6.1ms)[0m  [1m[31mDELETE FROM `books` WHERE `books`.`id` = 16[0m
+  ↳ app/controllers/api/v1/library_controller.rb:22:in `destroy'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/library_controller.rb:22:in `destroy'
+Completed 200 OK in 33ms (Views: 0.9ms | ActiveRecord: 9.8ms | Allocations: 2124)
+
+
+Started PUT "/api/v1/library/5" for ::1 at 2021-11-14 19:36:50 +0530
+Processing by Api::V1::LibraryController#update as */*
+  Parameters: {"year"=>"1994", "id"=>"5", "library"=>{"year"=>"1994"}}
+  [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 5 LIMIT 1[0m
+  ↳ app/controllers/api/v1/library_controller.rb:27:in `update'
+[31mUnpermitted parameters: :id, :library[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/library_controller.rb:28:in `update'
+  [1m[36mBook Update (2.2ms)[0m  [1m[33mUPDATE `books` SET `books`.`year` = 1994 WHERE `books`.`id` = 5[0m
+  ↳ app/controllers/api/v1/library_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/library_controller.rb:28:in `update'
+Completed 200 OK in 24ms (Views: 0.5ms | ActiveRecord: 5.3ms | Allocations: 2487)
+
+
+Started GET "/api/v1/articles" for ::1 at 2021-11-14 19:38:20 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/articles"):
+  
+Started GET "/api/v1/library" for ::1 at 2021-11-14 19:38:36 +0530
+Processing by Api::V1::LibraryController#index as HTML
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
+  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.4ms | Allocations: 1839)
+
+
