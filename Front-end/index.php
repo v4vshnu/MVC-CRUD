@@ -2,35 +2,83 @@
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
- 
 
 
 
-if( isset($_POST['title']) && isset($_POST['author']) && isset($_POST['publisher']) && isset($_POST['year'])  )  
-{$url = "http://localhost:3000/api/v1/library";
-$data = array('title' => $_POST["title"], 'author' => $_POST["author"], 'publisher' => $_POST["publisher"], 'year' => $_POST["year"]);
 
-// use key 'http' even if you send the request to https://...
-$options = array(
-  'http' => array(
-    'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-    'method'  => 'POST',
-    'content' => http_build_query($data)
-  )
-);
-$context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-if ($result === FALSE) { /* Handle error */
-}
-
-
-$json = file_get_contents($url);
-$json = json_decode($json);
-}
-
-
-} else { 
+  if (isset($_POST['title']) && isset($_POST['author']) && isset($_POST['publisher']) && isset($_POST['year'])) {
     $url = "http://localhost:3000/api/v1/library";
+    $data = array('title' => $_POST["title"], 'author' => $_POST["author"], 'publisher' => $_POST["publisher"], 'year' => $_POST["year"]);
+
+    // use key 'http' even if you send the request to https://...
+    $options = array(
+      'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'POST',
+        'content' => http_build_query($data)
+      )
+    );
+    $context  = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+    if ($result === FALSE) { /* Handle error */
+    }
+
+
+    $json = file_get_contents($url);
+    $json = json_decode($json);
+  } else if (isset($_POST['delete'])) {
+    $url = "http://localhost:3000/api/v1/library/" . $_POST['delete'];
+    // $data = array('title' => $_POST["title"], 'author' => $_POST["author"], 'publisher' => $_POST["publisher"], 'year' => $_POST["year"]);
+
+    // use key 'http' even if you send the request to https://...
+    $options = array(
+      'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'DELETE',
+        // 'content' => http_build_query($data)
+      )
+    );
+    $context  = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+    if ($result === FALSE) { /* Handle error */
+    }
+
+    $url = "http://localhost:3000/api/v1/library";
+    $json = file_get_contents($url);
+    $json = json_decode($json);
+  } else if (isset($_POST['e_title']) && isset($_POST['e_author']) && isset($_POST['e_publisher']) && isset($_POST['e_year'])) {
+    $url = "http://localhost:3000/api/v1/library/" . $_POST['e_id'];
+    $data = array('title' => $_POST["e_title"], 'author' => $_POST["e_author"], 'publisher' => $_POST["e_publisher"], 'year' => $_POST["e_year"]);
+
+    // use key 'http' even if you send the request to https://...
+    $options = array(
+      'http' => array(
+        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+        'method'  => 'PUT',
+        'content' => http_build_query($data)
+      )
+    );
+    $context  = stream_context_create($options);
+    $result = file_get_contents($url, false, $context);
+    if ($result === FALSE) { /* Handle error */
+    }
+
+
+    $json = file_get_contents($url);
+    $json = json_decode($json);
+
+
+    $url = "http://localhost:3000/api/v1/library";
+    $result = file_get_contents($url);
+    if ($result === FALSE) { /* Handle error */
+    }
+
+
+    $json = file_get_contents($url);
+    $json = json_decode($json);
+  }
+} else {
+  $url = "http://localhost:3000/api/v1/library";
 
   $result = file_get_contents($url);
   if ($result === FALSE) { /* Handle error */
@@ -66,7 +114,7 @@ $json = json_decode($json);
       <div class="table-title">
         <div class="row">
           <div class="col-sm-6">
-            <h1>CRUD table for Library</h1>
+            <h1>Library Books</h1>
           </div>
 
         </div>
@@ -167,27 +215,32 @@ $json = json_decode($json);
   <div id="editEmployeeModal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form>
+        <form method='POST'>
           <div class="modal-header">
-            <h4 class="modal-title">Edit Record</h4>
+            <h4 class="modal-title">Edit Details of A Book</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
+
+            <div class="form-group">
+              <label>Book ID</label>
+              <input type="text" class="form-control" name="e_id" required>
+            </div>
             <div class="form-group">
               <label>Title</label>
-              <input type="text" class="form-control" required>
+              <input type="text" class="form-control" name="e_title" required>
             </div>
             <div class="form-group">
               <label>Author</label>
-              <input type="text" class="form-control" required>
+              <input type="text" class="form-control" name="e_author" required>
             </div>
             <div class="form-group">
               <label>Publisher</label>
-              <input type="text" class="form-control" required>
+              <input type="text" class="form-control" name="e_publisher" required>
             </div>
             <div class="form-group">
               <label>Year</label>
-              <input type="number" class="form-control" required>
+              <input type="number" class="form-control" name="e_year" required>
             </div>
           </div>
           <div class="modal-footer">
@@ -202,14 +255,16 @@ $json = json_decode($json);
   <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form>
+        <form method='POST'>
           <div class="modal-header">
             <h4 class="modal-title">Delete Record</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
           </div>
           <div class="modal-body">
             <p>Are you sure you want to delete these Records?</p>
-            <p class="text-warning"><small>This action cannot be undone.</small></p>
+
+            <label>Book ID</label>
+            <input type="text" class="form-control" name="delete" required>
           </div>
           <div class="modal-footer">
             <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
