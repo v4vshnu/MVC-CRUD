@@ -371,751 +371,97 @@ Migrating to CreateBooks (20211114133418)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('The Last Enemy', 'Jenelle Bins', 'Hodder Headline', 2019)[0m
   [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:16:10 +0530
-  [1m[35m (4.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (1.1ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 34ms (Views: 0.3ms | ActiveRecord: 8.2ms | Allocations: 9002)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:16:10 +0530
+Started GET "/api/v1/library" for ::1 at 2021-11-15 22:30:53 +0530
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
 Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
   ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 1929)
+Completed 200 OK in 197ms (Views: 23.6ms | ActiveRecord: 15.2ms | Allocations: 9220)
 
 
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:23:31 +0530
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 4.0ms | Allocations: 8923)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:23:32 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
+Started GET "/api/v1/library/" for ::1 at 2021-11-16 15:22:48 +0530
+  [1m[35m (36.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::LibraryController#index as */*
+  [1m[36mBook Load (7.8ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
   ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 2001)
+Completed 200 OK in 96ms (Views: 9.5ms | ActiveRecord: 18.9ms | Allocations: 8054)
 
 
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:23:33 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
+Started GET "/api/v1/library/12" for ::1 at 2021-11-16 15:22:56 +0530
+Processing by Api::V1::LibraryController#show as */*
+  Parameters: {"id"=>"12"}
+  [1m[36mBook Load (1.1ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 12 LIMIT 1[0m
+  ↳ app/controllers/api/v1/library_controller.rb:9:in `show'
+Completed 200 OK in 28ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 1527)
+
+
+Started POST "/api/v1/library" for ::1 at 2021-11-16 15:23:15 +0530
+Processing by Api::V1::LibraryController#create as */*
+  Parameters: {"title"=>"Web Programming", "author"=>"Suvidha KS", "publisher"=>"NITC", "year"=>"2021", "library"=>{"title"=>"Web Programming", "author"=>"Suvidha KS", "publisher"=>"NITC", "year"=>"2021"}}
+[31mUnpermitted parameter: :library[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
+  [1m[36mBook Create (2.2ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Web Programming', 'Suvidha KS', 'NITC', 2021)[0m
+  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 4.1ms | Allocations: 2143)
+
+
+Started PUT "/api/v1/library/5" for ::1 at 2021-11-16 15:23:42 +0530
+Processing by Api::V1::LibraryController#update as */*
+  Parameters: {"year"=>"1995", "id"=>"5", "library"=>{"year"=>"1995"}}
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 5 LIMIT 1[0m
+  ↳ app/controllers/api/v1/library_controller.rb:27:in `update'
+[31mUnpermitted parameters: :id, :library[0m
   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 1800)
+  ↳ app/controllers/api/v1/library_controller.rb:28:in `update'
+  [1m[36mBook Update (2.8ms)[0m  [1m[33mUPDATE `books` SET `books`.`year` = 1995 WHERE `books`.`id` = 5[0m
+  ↳ app/controllers/api/v1/library_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/library_controller.rb:28:in `update'
+Completed 200 OK in 16ms (Views: 0.6ms | ActiveRecord: 5.8ms | Allocations: 2507)
 
 
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:23:33 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
+Started GET "/api/v1/library/" for ::1 at 2021-11-16 15:23:59 +0530
+Processing by Api::V1::LibraryController#index as */*
+  [1m[36mBook Load (0.9ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
   ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.4ms | Allocations: 2021)
+Completed 200 OK in 7ms (Views: 4.6ms | ActiveRecord: 0.9ms | Allocations: 1920)
 
 
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:24:45 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+Started DELETE "/api/v1/library/18" for ::1 at 2021-11-16 15:24:09 +0530
+Processing by Api::V1::LibraryController#destroy as */*
+  Parameters: {"id"=>"18"}
+  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` WHERE `books`.`id` = 18 LIMIT 1[0m
+  ↳ app/controllers/api/v1/library_controller.rb:21:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/library_controller.rb:22:in `destroy'
+  [1m[36mBook Destroy (4.1ms)[0m  [1m[31mDELETE FROM `books` WHERE `books`.`id` = 18[0m
+  ↳ app/controllers/api/v1/library_controller.rb:22:in `destroy'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/library_controller.rb:22:in `destroy'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 6.3ms | Allocations: 2122)
+
+
+Started POST "/api/v1/library" for ::1 at 2021-11-16 15:28:52 +0530
+Processing by Api::V1::LibraryController#create as */*
+  Parameters: {"title"=>"Web Programming", "author"=>"Suvidha KS", "publisher"=>"NITC", "year"=>"2021", "library"=>{"title"=>"Web Programming", "author"=>"Suvidha KS", "publisher"=>"NITC", "year"=>"2021"}}
+[31mUnpermitted parameter: :library[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
   ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
+  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('Web Programming', 'Suvidha KS', 'NITC', 2021)[0m
   ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT[0m
   ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 1800)
+Completed 200 OK in 40ms (Views: 0.4ms | ActiveRecord: 20.8ms | Allocations: 5150)
 
 
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:24:45 +0530
-Processing by Api::V1::LibraryController#index as HTML
+Started GET "/api/v1/library/" for ::1 at 2021-11-16 15:28:57 +0530
+Processing by Api::V1::LibraryController#index as */*
   [1m[36mBook Load (0.6ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
   ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.6ms | Allocations: 2095)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:24:47 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.4ms | Allocations: 1800)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:24:47 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms | Allocations: 2167)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:24:48 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 2.0ms | Allocations: 1786)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:24:48 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 2239)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:24:57 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 1783)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:24:57 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 2309)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:27:50 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (2.1ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 4.2ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:27:50 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (1.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 1.3ms | Allocations: 2381)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:27:53 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:27:53 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.5ms | Allocations: 2453)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:27:56 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:27:56 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 2525)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:27:58 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:27:59 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms | Allocations: 2597)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:28:20 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:28:20 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms | Allocations: 2669)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:29:22 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:29:22 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.4ms | Allocations: 2741)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:29:52 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:29:52 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 2813)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:32:48 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:32:49 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms | Allocations: 2885)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:32:57 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.2ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:32:57 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms | Allocations: 2957)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:34:03 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 1.9ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:34:03 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.4ms | Allocations: 3029)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:34:06 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:34:06 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms | Allocations: 3101)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:34:14 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:34:14 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 3173)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:34:14 +0530
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:34:14 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 1838)
-
-
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 1864)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:34:14 +0530
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:34:14 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 3320)
-
-
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms | Allocations: 3317)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:35:53 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:35:53 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 3389)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:35:53 +0530
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:35:53 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.9ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 1795)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:35:53 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:35:53 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (1.2ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 1.2ms | Allocations: 3537)
-
-
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.4ms | Allocations: 3533)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:35:55 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:35:55 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.3ms | Allocations: 3605)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:35:55 +0530
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:35:55 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.8ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 1791)
-
-
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (1.0ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 1935)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:35:55 +0530
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:35:55 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 3757)
-
-
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms | Allocations: 3749)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:35:56 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:35:57 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.4ms | Allocations: 3821)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:36:06 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:36:06 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.5ms | Allocations: 3893)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:37:50 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:37:50 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.4ms | Allocations: 3965)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:38:01 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:38:01 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 4037)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:38:35 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.7ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.5ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:38:35 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms | Allocations: 4109)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:38:42 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 2.1ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:38:42 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms | Allocations: 4181)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:41:01 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.5ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:41:01 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms | Allocations: 4253)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:41:08 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:41:08 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms | Allocations: 4325)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:41:13 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"test", "author"=>"test", "publisher"=>"testpub", "year"=>"2000"}
-  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.6ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('test', 'test', 'testpub', 2000)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:41:13 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms | Allocations: 4397)
-
-
-Started POST "/api/v1/library" for ::1 at 2021-11-16 14:45:48 +0530
-Processing by Api::V1::LibraryController#create as HTML
-  Parameters: {"title"=>"a", "author"=>"a", "publisher"=>"a", "year"=>"a"}
-  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mBook Create (0.3ms)[0m  [1m[32mINSERT INTO `books` (`title`, `author`, `publisher`, `year`) VALUES ('a', 'a', 'a', 0)[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
-  ↳ app/controllers/api/v1/library_controller.rb:14:in `create'
-Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 1782)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:45:48 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.4ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.4ms | Allocations: 4469)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:51:37 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.7ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 1.0ms | Allocations: 3872)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:51:37 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.3ms | Allocations: 3749)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:51:48 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.5ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.5ms | Allocations: 3749)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:51:48 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms | Allocations: 3749)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:55:04 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms | Allocations: 1805)
-
-
-Started GET "/api/v1/library" for ::1 at 2021-11-16 14:55:04 +0530
-Processing by Api::V1::LibraryController#index as HTML
-  [1m[36mBook Load (0.3ms)[0m  [1m[34mSELECT `books`.* FROM `books` ORDER BY id ASC[0m
-  ↳ app/controllers/api/v1/library_controller.rb:6:in `index'
-Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 1805)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.6ms | Allocations: 1935)
 
 
 Started GET "/api/v1/library" for 127.0.0.1 at 2021-11-16 15:15:13 +0530
